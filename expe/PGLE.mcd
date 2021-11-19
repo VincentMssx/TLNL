@@ -1,0 +1,4 @@
+0   POS	       SYM	KEEP
+1   GOV	       INT	KEEP
+2   LABEL      SYM	KEEP
+3   EOS	       SYM	KEEP
