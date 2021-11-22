@@ -9,11 +9,11 @@ import featuresAnalyser
 
 base_dir = os.getcwd()
 
-def extract_features(lang):
-    os.chdir(base_dir + '/expe/out/')
+def extract_features(lang,type):
+    os.chdir(base_dir + '/data/')
     taille_phrases = []
     liste_mots = []
-    with open("train_"+lang+"_proj.conllu", 'r', encoding='utf8') as f:
+    with open(type+"_"+lang+".conllu", 'r', encoding='utf8') as f:
         lines = f.readlines()
         empty_lines = []
         for i,line in enumerate(lines):
@@ -36,13 +36,13 @@ def extract_features(lang):
         liste_mots = list(set(liste_mots))
         return liste_mots, taille_phrases
 
-def var_exp_df():
+def var_exp_df(type):
     os.chdir(base_dir)
     list_lang = [k.replace('.conllu', '').replace('train_', '') for k in listdir('data') if
                  '.conllu' in k and 'train' in k]
     tailles_vocab, tailles_phrases = [],[]
     for lang in list_lang:
-        liste_mots, taille_phrases = extract_features(lang)
+        liste_mots, taille_phrases = extract_features(lang,type)
         tailles_vocab.append(len(liste_mots))
         tailles_phrases.append(np.mean(taille_phrases))
     df = pd.DataFrame({'lang':list_lang,
@@ -51,8 +51,8 @@ def var_exp_df():
                        })
     return df
 
-def make_df():
-    df = var_exp_df()
+def make_df(type):
+    df = var_exp_df(type)
     df.set_index('lang', inplace=True)
     df2 = pd.read_csv(base_dir + '/out.csv', index_col='lang')
     df = df.join(df2)
@@ -82,3 +82,13 @@ def my_plot():
     # ax.set(xlabel='Longueur des mots', ylabel='Nombre')
     # ax.set_title(lang)
     # plt.show()
+
+    #Calculer la profondeur des arbres
+    #Calculer la longueur moyenne des mots de la phrase
+    #POS
+
+    #Stats sur le corpus !!
+    #Taux de non projectivité
+    #longueur moyenne de dépendances
+    #Nature de la dépendance (OBJ)
+    #Ordre de dépendance 0 direct, 1 POS, Structure syntaxique
