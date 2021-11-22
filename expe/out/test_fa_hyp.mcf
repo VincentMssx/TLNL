@@ -1,0 +1,673 @@
+NOUN	1	nsubj	0
+VERB	-2	root	0
+SCONJ	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NUM	1	nummod	0
+NOUN	123456789		0
+PRON	-1	nmod	0
+PART	123456789		0
+NOUN	1	obj	0
+VERB	123456789		0
+PUNCT	123456789		1
+NOUN	2	nsubj	0
+PRON	-1	nmod	0
+VERB	-3	root	0
+SCONJ	123456789		0
+NOUN	123456789		0
+ADP	2	case	0
+DET	1	det	0
+NOUN	123456789		0
+NOUN	123456789		0
+VERB	123456789		0
+PUNCT	3	punct	0
+DET	1	det	0
+NOUN	1	obl	0
+VERB	-4	ccomp	0
+SCONJ	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+SCONJ	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+PRON	123456789		0
+VERB	123456789		0
+PUNCT	123456789		0
+NOUN	123456789		0
+AUX	-1	cop	0
+PUNCT	123456789		1
+NOUN	123456789		0
+PUNCT	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+NOUN	123456789		0
+NOUN	123456789		0
+VERB	123456789		0
+PUNCT	123456789		1
+NOUN	123456789		0
+NUM	1	nummod	0
+NOUN	123456789		0
+ADP	2	case	0
+NUM	1	nummod	0
+NOUN	-3	nmod	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+NOUN	123456789		0
+VERB	123456789		0
+SCONJ	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+PRON	-1	nmod	0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+VERB	123456789		0
+PUNCT	123456789		1
+NOUN	6	nsubj	0
+SCONJ	5	mark	0
+NOUN	4	nsubj	0
+NOUN	-1	nmod	0
+ADP	1	case	0
+NOUN	1	compound	0
+VERB	-7	root	0
+SCONJ	5	mark	0
+PRON	4	nsubj	0
+PART	-1	case	0
+ADP	1	case	0
+NOUN	1	obl	0
+VERB	-6	ccomp	0
+PUNCT	-1	punct	0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+PUNCT	123456789		0
+DET	1	det	0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+PRON	-1	nmod	0
+PART	123456789		0
+ADJ	1	compound	0
+VERB	123456789		0
+PUNCT	-1	punct	0
+SCONJ	1	mark	0
+ADJ	-3	ccomp	0
+AUX	-1	cop	0
+NOUN	5	obl	0
+NOUN	4	obl	0
+NOUN	-1	nmod	0
+NOUN	2	obl	0
+AUX	1	aux	0
+VERB	-7	ccomp	0
+PUNCT	123456789		1
+DET	1	det	0
+NOUN	3	nsubj	0
+PART	-1	case	0
+AUX	1	aux	0
+VERB	-5	root	0
+SCONJ	3	mark	0
+NOUN	2	nsubj	0
+NOUN	-1	nmod	0
+ADJ	-4	ccomp	0
+AUX	-1	cop	0
+PUNCT	123456789		0
+CCONJ	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+PRON	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-3	conj	0
+ADP	1	case	0
+NOUN	-6	nmod	0
+PUNCT	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	-2	nmod	0
+ADJ	-1	amod	0
+VERB	123456789		0
+PUNCT	13	punct	0
+CCONJ	12	cc	0
+ADP	3	case	0
+NUM	1	nummod	0
+NUM	1	nummod	0
+NOUN	8	nsubj	0
+DET	1	det	0
+ADJ	-2	amod	0
+SCONJ	5	mark	0
+NOUN	4	nsubj	0
+NOUN	-1	nmod	0
+AUX	2	aux	0
+NOUN	1	compound	0
+VERB	-14	conj	0
+PUNCT	7	punct	0
+CCONJ	6	cc	0
+NOUN	5	nsubj	0
+NOUN	-1	nmod	0
+PART	-2	case	0
+ADP	2	mark	0
+ADV	1	advmod	0
+VERB	-22	ccomp	0
+VERB	-1	aux	0
+PUNCT	123456789		1
+DET	1	det	0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADJ	-1	amod	0
+ADP	1	case	0
+NOUN	-4	nmod	0
+ADP	1	case	0
+NOUN	-2	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+PART	123456789		0
+NOUN	1	obj	0
+VERB	123456789		0
+PUNCT	123456789		1
+ADP	1	case	0
+NOUN	7	nsubj	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+ADP	1	case	0
+NOUN	2	compound	0
+NOUN	1	compound	0
+VERB	-9	root	0
+SCONJ	4	mark	0
+NOUN	3	nsubj	0
+PRON	-1	nmod	0
+AUX	1	aux	0
+VERB	-5	ccomp	0
+PUNCT	123456789		0
+VERB	123456789		0
+CCONJ	1	cc	0
+VERB	-2	conj	0
+ADP	1	case	0
+PRON	2	nsubj	0
+NOUN	1	compound	0
+VERB	-4	conj	0
+NOUN	17	obl	0
+CCONJ	1	cc	0
+VERB	-2	conj	0
+ADP	1	case	0
+NOUN	-4	nmod	0
+PUNCT	12	punct	0
+SCONJ	11	mark	0
+PRON	2	nsubj	0
+DET	1	det	0
+NOUN	8	obl	0
+AUX	7	aux	0
+SCONJ	6	mark	0
+PRON	5	obl	0
+ADP	1	case	0
+PRON	3	obl	0
+ADP	1	case	0
+NOUN	1	compound	0
+VERB	-18	conj	0
+VERB	-1	aux	0
+VERB	-1	aux	0
+PUNCT	123456789		1
+VERB	-1	root	0
+PUNCT	-1	punct	1
+PRON	123456789		0
+SCONJ	123456789		0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADP	1	case	0
+PRON	123456789		0
+VERB	123456789		0
+SCONJ	3	mark	0
+NOUN	2	obl	0
+ADJ	-1	amod	0
+VERB	-4	ccomp	0
+CCONJ	5	cc	0
+ADP	1	case	0
+NOUN	3	compound	0
+PRON	-1	nmod	0
+NOUN	1	compound	0
+VERB	-6	conj	0
+PUNCT	-1	punct	0
+SCONJ	12	mark	0
+NOUN	11	compound	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+PUNCT	3	punct	0
+CCONJ	2	cc	0
+PRON	1	nsubj	0
+NOUN	3	compound	0
+SCONJ	2	advmod	0
+NOUN	1	compound	0
+VERB	-14	ccomp	0
+SCONJ	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+ADP	1	case	0
+NOUN	123456789		0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+ADP	1	case	0
+NOUN	123456789		0
+VERB	123456789		0
+PUNCT	123456789		0
+NOUN	123456789		0
+AUX	123456789		0
+ADP	1	case	0
+PRON	123456789		0
+SCONJ	123456789		0
+NOUN	123456789		0
+ADJ	-1	amod	0
+ADP	1	case	0
+NOUN	123456789		0
+PRON	-1	nmod	0
+VERB	123456789		0
+PUNCT	123456789		1
+ADP	1	case	0
+NOUN	8	nsubj	0
+NOUN	-1	nmod	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+SCONJ	3	mark	0
+DET	1	det	0
+NOUN	1	obl	0
+VERB	-10	root	0
+PUNCT	-1	punct	1
+VERB	-1	root	0
+PUNCT	-1	punct	0
+VERB	-2	ccomp	0
+CCONJ	1	cc	0
+VERB	-2	conj	0
+ADP	1	case	0
+PRON	1	nsubj	0
+NOUN	-3	conj	0
+PUNCT	-8	punct	1
+ADV	2	advmod	0
+NOUN	1	nsubj	0
+ADJ	-3	root	0
+AUX	-1	cop	0
+CCONJ	8	cc	0
+NOUN	7	nsubj	0
+ADJ	-1	amod	0
+PRON	-2	nmod	0
+NOUN	4	obl	0
+ADJ	-1	amod	0
+ADP	1	case	0
+PRON	1	obl	0
+VERB	-10	ccomp	0
+SCONJ	2	mark	0
+AUX	1	aux	0
+VERB	-13	ccomp	0
+CCONJ	4	cc	0
+PRON	3	obj	0
+PART	-1	case	0
+NOUN	1	compound	0
+VERB	-5	conj	0
+PUNCT	-19	punct	1
+NOUN	6	nsubj	0
+ADP	1	case	0
+NOUN	4	compound	0
+NOUN	-1	nmod	0
+ADJ	-1	amod	0
+NOUN	1	compound	0
+VERB	-7	root	0
+PUNCT	-1	punct	1
+NOUN	7	nsubj	0
+SCONJ	6	mark	0
+ADP	1	case	0
+NOUN	4	nsubj	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+VERB	-8	root	0
+PUNCT	-1	punct	0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADJ	-1	amod	0
+NOUN	123456789		0
+VERB	123456789		0
+PUNCT	2	punct	0
+ADV	1	advmod	0
+VERB	-3	ccomp	0
+AUX	123456789		0
+NOUN	123456789		0
+ADJ	-1	amod	0
+PUNCT	123456789		0
+SCONJ	123456789		0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+NOUN	123456789		0
+VERB	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+PUNCT	123456789		1
+NOUN	13	nsubj	0
+ADJ	-1	amod	0
+CCONJ	1	cc	0
+NOUN	-3	conj	0
+ADJ	-1	amod	0
+ADP	1	case	0
+NOUN	-6	nmod	0
+PUNCT	1	punct	0
+ADJ	-8	amod	0
+PRON	-9	nmod	0
+SCONJ	3	mark	0
+NOUN	2	nsubj	0
+ADJ	-1	amod	0
+VERB	-14	root	0
+ADP	1	case	0
+NOUN	123456789		0
+PUNCT	123456789		1
+PRON	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+VERB	123456789		0
+PUNCT	123456789		0
+PRON	123456789		0
+NOUN	123456789		0
+ADJ	-1	amod	0
+NOUN	-2	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+AUX	123456789		0
+PUNCT	123456789		1
+ADP	1	case	0
+NOUN	2	nsubj	0
+NOUN	1	compound	0
+VERB	-4	root	0
+ADV	123456789		0
+PUNCT	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+PRON	-1	nmod	0
+VERB	123456789		0
+ADV	123456789		0
+PUNCT	123456789		1
+NOUN	3	nsubj	0
+ADJ	-1	amod	0
+NOUN	1	compound	0
+VERB	-4	root	0
+ADV	123456789		0
+PUNCT	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+VERB	123456789		0
+ADV	123456789		0
+PUNCT	123456789		1
+VERB	-1	root	0
+SCONJ	3	mark	0
+ADJ	2	compound	0
+NOUN	1	obl	0
+VERB	-4	ccomp	0
+SCONJ	6	mark	0
+NOUN	5	nsubj	0
+PUNCT	4	punct	0
+ADV	3	advmod	0
+ADP	1	case	0
+NOUN	1	obl	0
+VERB	-7	ccomp	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+PUNCT	123456789		1
+VERB	-1	root	0
+ADV	5	advmod	0
+NOUN	4	nsubj	0
+NOUN	-1	nmod	0
+PRON	-1	nmod	0
+PUNCT	1	punct	0
+ADJ	-6	ccomp	0
+AUX	-1	cop	0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	-2	nmod	0
+PRON	-1	nmod	0
+PUNCT	123456789		1
+ADV	1	advmod	0
+VERB	-2	root	0
+SCONJ	3	mark	0
+NOUN	2	nsubj	0
+ADV	1	advmod	0
+VERB	-4	ccomp	0
+ADV	7	advmod	0
+PUNCT	6	punct	0
+ADP	5	case	0
+ADP	4	compound	0
+NOUN	3	obl	0
+ADP	1	case	0
+ADV	1	advmod	0
+VERB	-8	conj	0
+ADV	123456789		0
+PUNCT	123456789		1
+SCONJ	123456789		0
+PRON	123456789		0
+PUNCT	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+PRON	-1	nmod	0
+PRON	123456789		0
+AUX	123456789		0
+PUNCT	123456789		1
+ADP	2	case	0
+NUM	1	nummod	0
+NOUN	123456789		0
+ADJ	-1	amod	0
+ADJ	-2	amod	0
+NOUN	-3	nmod	0
+PUNCT	123456789		0
+SCONJ	123456789		0
+NOUN	123456789		0
+ADJ	-1	amod	0
+PART	-2	case	0
+DET	1	det	0
+NOUN	123456789		0
+NOUN	123456789		0
+NOUN	123456789		0
+VERB	123456789		0
+PUNCT	123456789		0
+AUX	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADJ	-1	amod	0
+ADP	1	case	0
+NOUN	-4	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+PART	-7	case	0
+ADP	1	case	0
+NOUN	123456789		0
+PRON	-1	nmod	0
+ADP	1	case	0
+NOUN	-3	nmod	0
+ADJ	-1	amod	0
+VERB	123456789		0
+PUNCT	123456789		1
+NOUN	13	nsubj	0
+NOUN	-1	nmod	0
+NOUN	-1	nmod	0
+ADJ	-1	amod	0
+ADP	1	case	0
+PRON	-5	nmod	0
+AUX	-6	cop	0
+SCONJ	6	mark	0
+NOUN	5	obl	0
+NOUN	-1	nmod	0
+NOUN	-1	nmod	0
+ADP	1	case	0
+NOUN	1	compound	0
+VERB	-14	root	0
+VERB	-1	aux	0
+SCONJ	12	mark	0
+NOUN	11	obj	0
+ADJ	-1	amod	0
+ADP	9	compound	0
+CCONJ	-1	fixed	0
+PUNCT	7	punct	0
+ADV	6	advmod	0
+NOUN	5	obj	0
+NUM	1	nummod	0
+NOUN	-2	nmod	0
+PART	-3	case	0
+NOUN	1	compound	0
+VERB	-13	conj	0
+PUNCT	-15	punct	1
+NOUN	7	nsubj	0
+NOUN	-1	nmod	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+NOUN	-1	nmod	0
+ADP	1	case	0
+NOUN	1	obl	0
+VERB	-8	root	0
+VERB	-1	aux	0
+PUNCT	-2	punct	1
+DET	1	det	0
+NOUN	11	nsubj	0
+ADJ	-1	amod	0
+NOUN	-2	nmod	0
+ADP	1	case	0
+NOUN	7	compound	0
+NOUN	-1	nmod	0
+ADJ	5	compound	0
+AUX	4	aux	0
+CCONJ	3	cc	0
+PRON	2	obl	0
+NOUN	1	compound	0
+VERB	-13	root	0
+SCONJ	4	mark	0
+ADP	1	case	0
+PRON	2	obl	0
+NOUN	1	compound	0
+VERB	-5	ccomp	0
+PUNCT	-6	punct	1
+NOUN	31	nsubj	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+SCONJ	28	mark	0
+ADV	27	advmod	0
+NOUN	26	obl	0
+ADJ	-1	amod	0
+ADP	1	case	0
+NOUN	-3	nmod	0
+NOUN	-1	nmod	0
+AUX	-5	cop	0
+PUNCT	20	punct	0
+CCONJ	19	cc	0
+NOUN	18	obl	0
+ADV	17	advmod	0
+NOUN	16	obl	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+NOUN	-1	nmod	0
+ADJ	-1	amod	0
+PRON	-2	nmod	0
+AUX	8	aux	0
+PUNCT	7	punct	0
+NOUN	6	nsubj	0
+PRON	-1	nmod	0
+PART	-2	case	0
+ADP	1	case	0
+NOUN	2	obl	0
+AUX	1	aux	0
+VERB	-32	root	0
+PUNCT	-1	punct	1
+NOUN	123456789		0
+SCONJ	123456789		0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+VERB	123456789		0
+PUNCT	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	123456789		0
+VERB	123456789		0
+SCONJ	9	mark	0
+ADP	1	case	0
+NOUN	7	obl	0
+NOUN	-1	nmod	0
+CCONJ	2	cc	0
+DET	1	det	0
+NOUN	-3	conj	0
+ADJ	-1	amod	0
+NOUN	1	compound	0
+VERB	-10	conj	0
+VERB	-1	aux	0
+PUNCT	123456789		1
+SCONJ	5	mark	0
+ADP	1	case	0
+NOUN	3	nsubj	0
+PRON	-1	nmod	0
+ADV	1	advmod	0
+NOUN	-6	root	0
+AUX	-1	cop	0
+PUNCT	123456789		0
+ADP	1	case	0
+NOUN	123456789		0
+ADP	1	case	0
+PRON	123456789		0
+NOUN	123456789		0
+CCONJ	1	cc	0
+NOUN	-2	conj	0
+AUX	123456789		0
+PUNCT	123456789		1
+NOUN	13	nsubj	0
+ADJ	-1	amod	0
+CCONJ	1	cc	0
+NOUN	-3	conj	0
+ADJ	-1	amod	0
+PUNCT	8	punct	0
+ADP	1	case	0
+NOUN	6	nsubj	0
+CCONJ	5	cc	0
+ADP	1	case	0
+NOUN	3	nsubj	0
+PRON	-1	nmod	0
+ADV	1	det	0
+NOUN	-14	root	0
+PUNCT	-1	punct	1
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+PUNCT	123456789		0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+ADP	1	case	0
+NOUN	123456789		0
+NOUN	-1	nmod	0
+PUNCT	123456789		1

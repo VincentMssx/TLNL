@@ -1,0 +1,161 @@
+\documentclass[a4paper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\title{Traitement du Langage Naturel et Linguistique}
+
+\date{M2 IAAA 2021/2022}
+
+\author{LE BELLEGO Victor, MARTZLOFF Alice, MOUSSOX Vincent}
+
+\usepackage[a4paper]{geometry}
+\usepackage{csvsimple}
+\geometry{hscale=0.80,vscale=0.85,centering}
+
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{stmaryrd} 
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{environ}
+
+
+%%% Minted + options %%%
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\definecolor{bgLightGray}{RGB}{240,240,240}
+\definecolor{lightgray}{gray}{.95}
+\renewcommand{\theFancyVerbLine}{\normalfont {\footnotesize {\arabic{FancyVerbLine}}}}
+\let\oldPYGdefault\PYGdefault
+\def\PYGdefault#1#2{\hbox{\oldPYGdefault{#1}{#2}}\allowbreak{}}
+\surroundwithmdframed[topline = false, leftline = true, rightline = false, bottomline = false,backgroundcolor=bgLightGray,linewidth=0.5pt]{minted}
+
+\newcommand{\inputmintedcustom}[1]{\begingroup \catcode`_=12 \texttt{#1} \begin{mdframed}[topline = false, leftline = true, rightline = false, bottomline = false,backgroundcolor=bgLightGray,linewidth=0.5pt]
+\inputminted[linenos=true, tabsize=4, fontsize=\small, xleftmargin=0pt, xrightmargin=5pt, breaklines=true, obeytabs=true, numbersep=5mm,]{python}{#1}
+\end{mdframed}}
+
+\newenvironment{mintedcustom}
+{%
+    \VerbatimEnvironment
+    \begin{minted}[linenos=true, tabsize=4, fontsize=\small, xleftmargin=0pt, xrightmargin=5pt, breaklines=true, obeytabs=true, numbersep=5mm]{python}%
+}
+{%
+    \end{minted}%
+    }
+
+\RequirePackage{luacolor}
+\RequirePackage{pgf}
+\definecolor{bgLightGray}{RGB}{235,235,235}
+\definecolor{DarkGrey}{rgb}{0.15,0.15,0.15}
+\pgfkeys{
+ /consoletext/.is family, /consoletext,
+ caption/.estore in = \consoletextCaption,
+ label/.estore in = \consoletextLabel,
+}
+
+\newenvironment{consoletext}[1][]
+{	\def\tmp{#1}%
+    \pgfkeys{/consoletext,#1}
+    \setlength{\OuterFrameSep}{0pt}						% no frame around the text
+	\setlength{\FrameSep}{1mm}							% just a bit of colored space around the text
+    \colorlet{shadecolor}{DarkGrey}                % background color to display console
+	\begin{shaded}\begin{raggedright}\captionsetup{type=consoleText}\small\ttfamily\color{bgLightGray}}
+{\end{raggedright}\end{shaded}\par%
+%\ifx\tmp\@nnil{\relax}\else{\vspace{-0.25cm}\captionof{consoleText}{\consoletextCaption}\vspace{0.25cm}\label{\consoletextLabel}}\fi
+\ifthenelse{\equal{\tmp}{}}{}{\vspace{-0.25cm}\captionof{consoleText}{\consoletextCaption}\vspace{0.25cm}\label{\consoletextLabel}}
+}
+
+
+%%% Font %%%
+\usepackage{fontspec}
+\setsansfont{IBMPlexSans}[                       % set up custom font
+    Extension = .otf,
+    %Path = style/fonts/,
+    UprightFont = *-Light,
+    BoldFont = *-SemiBold,
+    ItalicFont = *-LightItalic,
+    BoldItalicFont = *-SemiBoldItalic
+]
+\renewcommand{\familydefault}{\sfdefault}	
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0em}
+%\setenumerate{font=\bfseries}
+
+
+%%% Header & Footer %%%
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancyfoot{} 
+\fancyhf{}
+
+\renewcommand{\sectionmark}[1]{\markboth{\MakeUppercase{\thesection.\ #1}}{}}
+%\fancyhead[RE]{\includegraphics[height=2em]{images/ichikoh.png}}
+\fancyhead[RO]{\nouppercase{\texttt{\rightmark}}\sectionmark}   
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyfoot[LE,RO]{\texttt{\thepage}}
+%\fancyfoot[RE]{\texttt{Ichikoh Industries Ltd.}}
+%\fancyfoot[LO]{\texttt{Python Stress Documentation v0.9 }}   
+
+
+\fancypagestyle{plain}{
+\fancyhf{}
+  \fancyhead{}
+  \fancyfoot{}
+}
+
+%%% Remark %%%
+
+\makeatletter
+\newenvironment{beware}[1][\@nil]
+{	\def\tmp{#1}%
+    \setlength{\OuterFrameSep}{0pt}						% no space around the text
+	\setlength{\FrameSep}{1mm}							% just a bit of colored space around the text
+	\definecolor{shadecolor}{rgb}{1.00,0.80,0.80}		% background color for remarks
+	\begin{leftbar}\noindent{}%                         % test for option or not
+	\ifx\tmp\@nnil{}\else{\textbf{#1 : }}\fi}           % taken from https://tex.stackexchange.com/questions/217757/special-behavior-if-optional-argument-is-not-passed
+{\end{leftbar}\par}
+\makeatother
+
+%%% Console %%%
+
+\definecolor{fgDarkRed}{RGB}{91,27,22}          % text color in console (draft mode)
+\definecolor{fgDarkerRed}{RGB}{51,8,6}          % background color in console
+\definecolor{fgVeryLightRed}{RGB}{248,226,224} 
+
+\RequirePackage{pgf}
+\pgfkeys{
+ /consoletext/.is family, /consoletext,
+ caption/.estore in = \consoletextCaption,
+ label/.estore in = \consoletextLabel,
+}
+
+
+
+\begin{document}
+\maketitle
+%\begin{beware}[\textcolor{red}{Important Remark}]
+%\end{beware}
+
+    \section{Certaines langues sont elles plus difficiles à analyser que d’autres ?}
+
+    L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquelles des analyseurs syntaxiques partageant la même architecture et entraînés sur la même quantité de données obtiennent des performances très différentes sur différentes langues. On peut observer ce phénomène dans la Table 2 qui présente les performances calculées à l'aide des mesures LAS (Labeled Accuracy Score) et UAS (Unlabeled Accuracy Score) obtenues par un analyseur sur 36 langues différentes.
+
+    \csvautobooktabular{out.csv}
+    
+    \inputmintedcustom{../tbp-master/test.py}
+
+
+    
+\end{document}
