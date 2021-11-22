@@ -37,6 +37,7 @@ def extract_features(lang):
         return liste_mots, taille_phrases
 
 def var_exp_df():
+    os.chdir(base_dir)
     list_lang = [k.replace('.conllu', '').replace('train_', '') for k in listdir('data') if
                  '.conllu' in k and 'train' in k]
     tailles_vocab, tailles_phrases = [],[]
