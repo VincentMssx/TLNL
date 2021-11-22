@@ -4,9 +4,7 @@ from subprocess import run
 import pandas as pd
 from tabulate import tabulate
 
-### A Changer ###
-base_dir = '/Users/victorlebellego/Documents/Dev/Python/TLNL/'
-###
+base_dir = os.getcwd()
 os.chdir(base_dir)
 
 list_lang = [k.replace('.conllu','').replace('train_','') for k in listdir('data') if '.conllu' in k and 'train' in k]

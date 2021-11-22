@@ -7,8 +7,7 @@ import pandas as pd
 import numpy as np
 import featuresAnalyser
 
-base_dir = '/Users/victorlebellego/Documents/Dev/Python/TLNL/'
-#lang = 'fr'
+base_dir = os.getcwd()
 
 def extract_features(lang):
     os.chdir(base_dir + 'expe/out/')
