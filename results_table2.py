@@ -4,10 +4,10 @@ from subprocess import run
 import pandas as pd
 from tabulate import tabulate
 
-base_dir = '/Users/victorlebellego/Documents/Dev/Python/TLNL/'
 ### A Changer ###
-os.chdir(base_dir)
+base_dir = '/Users/victorlebellego/Documents/Dev/Python/TLNL/'
 ###
+os.chdir(base_dir)
 
 list_lang = [k.replace('.conllu','').replace('train_','') for k in listdir('data') if '.conllu' in k and 'train' in k]
 print('Training '+str(len(list_lang))+' languages')

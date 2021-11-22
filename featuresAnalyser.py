@@ -1,11 +1,11 @@
 import os
-import pandas as pd
 from os import listdir
 from scipy import stats
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import featuresAnalyser
 
 base_dir = '/Users/victorlebellego/Documents/Dev/Python/TLNL/'
 #lang = 'fr'
@@ -52,6 +52,12 @@ def var_exp_df():
                        })
     return df
 
+def make_df():
+    df = featuresAnalyser.var_exp_df()
+    df.set_index('lang', inplace=True)
+    df2 = pd.read_csv(base_dir + 'out.csv', index_col='lang')
+    df = df.join(df2)
+    return df
 
 def my_plot():
     df = pd.DataFrame({'mots' : liste_mots})
