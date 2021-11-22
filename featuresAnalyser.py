@@ -10,7 +10,7 @@ import featuresAnalyser
 base_dir = os.getcwd()
 
 def extract_features(lang):
-    os.chdir(base_dir + 'expe/out/')
+    os.chdir(base_dir + '/expe/out/')
     taille_phrases = []
     liste_mots = []
     with open("train_"+lang+"_proj.conllu", 'r') as f:
@@ -37,7 +37,6 @@ def extract_features(lang):
         return liste_mots, taille_phrases
 
 def var_exp_df():
-    os.chdir('/Users/victorlebellego/Documents/Dev/Python/IAAA/TLNL/tbp-master/')
     list_lang = [k.replace('.conllu', '').replace('train_', '') for k in listdir('data') if
                  '.conllu' in k and 'train' in k]
     tailles_vocab, tailles_phrases = [],[]
@@ -54,7 +53,7 @@ def var_exp_df():
 def make_df():
     df = featuresAnalyser.var_exp_df()
     df.set_index('lang', inplace=True)
-    df2 = pd.read_csv(base_dir + 'out.csv', index_col='lang')
+    df2 = pd.read_csv(base_dir + '/out.csv', index_col='lang')
     df = df.join(df2)
     return df
 
