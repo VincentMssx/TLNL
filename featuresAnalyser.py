@@ -13,7 +13,7 @@ def extract_features(lang):
     os.chdir(base_dir + '/expe/out/')
     taille_phrases = []
     liste_mots = []
-    with open("train_"+lang+"_proj.conllu", 'r') as f:
+    with open("train_"+lang+"_proj.conllu", 'r', encoding='utf8') as f:
         lines = f.readlines()
         empty_lines = []
         for i,line in enumerate(lines):
@@ -52,7 +52,7 @@ def var_exp_df():
     return df
 
 def make_df():
-    df = featuresAnalyser.var_exp_df()
+    df = var_exp_df()
     df.set_index('lang', inplace=True)
     df2 = pd.read_csv(base_dir + '/out.csv', index_col='lang')
     df = df.join(df2)
