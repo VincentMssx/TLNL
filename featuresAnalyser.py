@@ -40,14 +40,16 @@ def var_exp_df(type):
     os.chdir(base_dir)
     list_lang = [k.replace('.conllu', '').replace('train_', '') for k in listdir('data') if
                  '.conllu' in k and 'train' in k]
-    tailles_vocab, tailles_phrases = [],[]
+    tailles_vocab, tailles_phrases, longueur_mots = [],[],[]
     for lang in list_lang:
         liste_mots, taille_phrases = extract_features(lang,type)
         tailles_vocab.append(len(liste_mots))
         tailles_phrases.append(np.mean(taille_phrases))
+        longueur_mots.append(np.mean([len(x) for x in liste_mots]))
     df = pd.DataFrame({'lang':list_lang,
                        'taille_vocab' : tailles_vocab,
-                       'tailles_phrase' : tailles_phrases
+                       'tailles_phrase' : tailles_phrases,
+                       'longueur_mots' : longueur_mots,
                        })
     return df
 
@@ -57,6 +59,27 @@ def make_df(type):
     df2 = pd.read_csv(base_dir + '/out.csv', index_col='lang')
     df = df.join(df2)
     return df
+
+# def is_projective(sentence):
+#
+#
+# def isDepProj(wordBuffer, depIndex) :
+#     govIndex = wordBuffer.getWord(depIndex).getFeat('GOV')
+# #    print("dep Index = ", depIndex, "gov Index =", govIndex)
+#     if depIndex < govIndex :
+#         for currentIndex in range(depIndex + 1, govIndex):
+#             currentGovIndex =  wordBuffer.getWord(currentIndex).getFeat('GOV')
+#             if currentGovIndex < depIndex or currentGovIndex > govIndex :
+# #                print("word not projective :", currentIndex)
+#                 return False
+#     if govIndex < depIndex :
+#         for currentIndex in range(govIndex + 1, depIndex):
+#             currentGovIndex =  wordBuffer.getWord(currentIndex).getFeat('GOV')
+#             if currentGovIndex < govIndex or currentGovIndex > depIndex :
+# #                print("word not projective :", currentIndex)
+#                 return False
+#     return True
+
 
 def my_plot():
     df = pd.DataFrame({'mots' : liste_mots})
@@ -84,7 +107,7 @@ def my_plot():
     # plt.show()
 
     #Calculer la profondeur des arbres
-    #Calculer la longueur moyenne des mots de la phrase
+    #Calculer la longueur moyenne des mots de la phrase OK
     #POS
 
     #Stats sur le corpus !!
