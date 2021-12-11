@@ -165,17 +165,17 @@ L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquel
 
     Prenons par exemple la voix passive. Lorsqu’elle existe dans une langue, il faut pouvoir définir comment passer de la voie active à la voix passive, ce qui exige une explication de règle supplémentaire. Une langue qui possède une voix passive est donc, en ce qui concerne cette construction spécifique, plus complexe qu’une autre n’en possédant pas. Si on énumère donc un grand nombre de \og constructions complexes \fg{}, la langue la plus complexe sera celle qui en compte le plus grand nombre.
 
-    Pour extraire les \og constructions complexes  qu’on peut trouver dans une langue, Parkvall utilise le set de données World Atlas of Linguistic Structures (WALS) publié en 2005 par Haspelmath et al.. Il choisit 155 langues parmi plus de 2 500, et 47 caractéristiques parmi plus de 140.
+    Pour extraire les \og constructions complexes \fg{} qu’on peut trouver dans une langue, Parkvall utilise le set de données World Atlas of Linguistic Structures (WALS) publié en 2005 par Haspelmath et al.. Il choisit 155 langues parmi plus de 2 500, et 47 caractéristiques parmi plus de 140.
 
     \paragraph{Choix des caractéristiques}
 
     Il exclut des caractéristiques selon un raisonnement défendu dans son papier et qui s’efforce de mettre la majorité des linguistes d’accord sur le fait qu’une caractéristique apporte de la complexité. Il retient les caractéristiques suivantes : \par
 
-    \begin{table}
+    \begin{table}{!h}
         \centering
         \begin{tabulary}{\textwidth}{LLL}
             \toprule
-            \textbf{Caractéristiques} & \textbf{} & \textbf{} \\
+            \textbf{Caractéristiques du WALS} & \textbf{} & \textbf{} \\
             \midrule
             Size of consonant inventories & Distance contrast in demonstratives & Morphological imperative \\
             Size of vowel quality inventories & Gender in pronouns & Morphological optative \\
@@ -195,8 +195,53 @@ L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquel
             Inclusivity (in either pronouns or verb morphology) & Grammaticalized perfect &  \\
             \bottomrule
         \end{tabulary}
-        \caption{}
-        \label{tab:}
+        \caption{Liste des caractéristiques extraite directement du WALS}
+        \label{tab:0}
     \end{table}
-    
+
+    Il ajoute à ces caractéristiques, d’autres données “résiduelles” d’auteurs contributeurs au WALS que sont les suivantes : \par
+
+   \begin{table}{!h}
+        \centering
+        \begin{tabulary}{\textwidth}{LLL}
+            \toprule
+            \textbf{Caractéristiques d'auteurs du WALS} & \textbf{} & \textbf{} \\
+            \midrule
+            Demonstratives marked for number & Demonstratives marked for gender & Demonstratives marked for case \\
+            Total amount of verbal suppletion & Alienability distinctions &  \\
+            \bottomrule
+        \end{tabulary}
+        \caption{Liste de caractéristiques proposées par les auteurs du WALS}
+        \label{tab:1}
+    \end{table}
+
+    Ainsi qu’une donnée de Harley and Ritter (2002) à laquelle il a eu accès : \par
+
+\begin{table}{!h}
+        \centering
+        \begin{tabulary}{\textwidth}{LLL}
+            \toprule
+            \textbf{Caractéristique de Harley et Ritter} & \textbf{} & \textbf{} \\
+            \midrule
+             & Number of pronominal numbers &  \\
+            \bottomrule
+        \end{tabulary}
+        \caption{Une caractéristique accessible, inspirée de Harley et al. (2002)}
+        \label{tab:2}
+    \end{table}
+
+    Les valeurs de ces caractéristiques ont toutes été traduite par l’auteur comme des valeurs entre 0 et 1 : \par
+    "Oui ou non" devient 0 ou 1 (avec parfois des 0.5). \par
+    Des valeurs d'intensité comprises entre 1 et 4 sont compréssée en : 0, 0.25, 0.5, 0.75 et 1. \par
+    Des valeurs catégoriques comme la classification en “simple”, “modérément complexe” et “complexe” sont traduites en 0, 0.5, 1.
+
+    \paragraph{Choix des langues}
+
+    L’auteur s’attèle à choisir des langues dont les annotations ne sont pas lacunaires pour ces caractéristiques. Pour une langue i donnée :
+    \begin{equation}
+    \text { Score }_{i}=\frac{\sum_{k=1}^{L} \text { contribution }_{k}}{L}
+    \end{equation}
+
+    N.B.: de même que pour les caractéristiques que nous extrayons directement de nos données, Parkvall note que le set de données WALS n’est pas identiquement distribué : les langues ne sont pas identiquement annotées pour les caractéristiques proposées…
+
 \end{document}
