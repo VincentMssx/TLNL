@@ -1,6 +1,6 @@
 \documentclass[a4paper, twoside]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage[english,french]{babel}
 \title{Traitement du Langage Naturel et Linguistique}
 
 \date{M2 IAAA 2021/2022}
@@ -9,6 +9,7 @@
 
 \usepackage[a4paper]{geometry}
 \usepackage{csvsimple}
+\usepackage{parskip}
 \geometry{hscale=0.80,vscale=0.85,centering}
 
 \usepackage{float}
@@ -149,11 +150,10 @@
 %\end{beware}
 
     \section{Certaines langues sont elles plus difficiles à analyser que d’autres ?}
-
-    L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquelles des analyseurs syntaxiques partageant la même architecture et entraînés sur la même quantité de données obtiennent des performances très différentes sur différentes langues. On peut observer ce phénomène dans la Table 2 qui présente les performances calculées à l'aide des mesures LAS (Labeled Accuracy Score) et UAS (Unlabeled Accuracy Score) obtenues par un analyseur sur 36 langues différentes.
+L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquelles des analyseurs syntaxiques partageant la même architecture et entraînés sur la même quantité de données obtiennent des performances très différentes sur différentes langues. On peut observer ce phénomène dans la Table 2 qui présente les performances calculées à l'aide des mesures LAS (Labeled Accuracy Score) et UAS (Unlabeled Accuracy Score) obtenues par un analyseur sur 36 langues différentes.
 
     \csvautobooktabular{out.csv}
-    \inputmintedcustom{../tbp-master/test.py}
+    %\inputmintedcustom{../tbp-master/test.py}
 
     \subsection{Variables explicatives}
 
@@ -161,13 +161,15 @@
     \subsubsection{Complexité selon M. Parkvall}
 
     Dans son papier The simplicity of creoles in a cross-linguistic perspective sorti en 2008, Mikael Parkvall s’intéresse à quantifier la complexité des langues. Il part du postulat qu’une expression est d’autant plus complexe qu’elle implique de règles, c’est-à-dire qu’elle requiert une longue description. Ainsi, l'hypothèse de base de l’auteur est la suivante : une langue complexe est une langue avec des constructions plus complexes. Il explore un aspect de complexité structurelle.
-    Prenons par exemple la voix passive. Lorsqu’elle existe dans une langue, il faut pouvoir définir comment passer de la voie active à la voix passive, ce qui exige une explication de règle supplémentaire. Une langue qui possède une voix passive est donc, en ce qui concerne cette construction spécifique, plus complexe qu’une autre n’en possédant pas. Si on énumère donc un grand nombre de “constructions complexes”, la langue la plus complexe sera celle qui en compte le plus grand nombre.
-    Pour extraire les “constructions complexes” qu’on peut trouver dans une langue, Parkvall utilise le set de données World Atlas of Linguistic Structures (WALS) publié en 2005 par Haspelmath et al.. Il choisit 155 langues parmi plus de 2 500, et 47 caractéristiques parmi plus de 140.
+
+    Prenons par exemple la voix passive. Lorsqu’elle existe dans une langue, il faut pouvoir définir comment passer de la voie active à la voix passive, ce qui exige une explication de règle supplémentaire. Une langue qui possède une voix passive est donc, en ce qui concerne cette construction spécifique, plus complexe qu’une autre n’en possédant pas. Si on énumère donc un grand nombre de \og constructions complexes \fg{}, la langue la plus complexe sera celle qui en compte le plus grand nombre.
+
+    Pour extraire les \og constructions complexes  qu’on peut trouver dans une langue, Parkvall utilise le set de données World Atlas of Linguistic Structures (WALS) publié en 2005 par Haspelmath et al.. Il choisit 155 langues parmi plus de 2 500, et 47 caractéristiques parmi plus de 140.
 
     \paragraph{Choix des caractéristiques}
 
-    Il exclut des caractéristiques selon un raisonnement défendu dans son papier et qui s’efforce de mettre la majorité des linguistes d’accord sur le fait qu’une caractéristique apporte de la complexité. Il retient les caractéristiques suivantes :
-    % test
+    Il exclut des caractéristiques selon un raisonnement défendu dans son papier et qui s’efforce de mettre la majorité des linguistes d’accord sur le fait qu’une caractéristique apporte de la complexité. Il retient les caractéristiques suivantes : \par
+
     \csvautobooktabular{wals_features.csv}
     
 \end{document}
