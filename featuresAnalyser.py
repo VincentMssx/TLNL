@@ -100,17 +100,17 @@ def long_dependances(filetype,lang):
         sentences = [0]
         for i,line in enumerate(lines):
             line = line.split()
-            if int(line[3]) == 1:
+            if int(line[4]) == 1:
                 sentences.append(i+1)
         liste = []
         for i in range(len(sentences) - 1):
             liste2 = []
             for line in lines[sentences[i]:sentences[i + 1]]:
                 word = line.split()
-                if word[2] == 'root':
+                if word[3] == 'root':
                     liste2.append(0)
                 else :
-                    liste2.append(int(word[1]))
+                    liste2.append(int(word[2]))
             liste.append(liste2)
     liste_abs = rel2abs(liste)
     for liste3 in liste_abs:
