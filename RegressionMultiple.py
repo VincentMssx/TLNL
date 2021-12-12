@@ -31,13 +31,23 @@ def mean_norm(df_input):
 df_train = pd.read_csv('results_train.csv',index_col='lang').sort_values(by=['uas'])
 df_test = pd.read_csv('results_dev.csv',index_col='lang').sort_values(by=['uas'])
 
-X_train = df_train[["taille_vocab" , "tailles_phrase" , "longueur_mots" , "taux_non_projectivite" , "nombre_moyen_dep" , "longueur_moyenne_dep" , "longueur_moyenne_max_dep"]]
+X_train = df_train[["taille_vocab" , "tailles_phrase" , "longueur_mots" , "taux_non_projectivite" , "nombre_moyen_dep" , "longueur_moyenne_dep" , "longueur_moyenne_max_dep", "Score"]]
+X_train.fillna(X_train.mean(), inplace=True)
 X_train = mean_norm(X_train)
 y_train = df_train[["las"]]
-X_test = df_test[["taille_vocab" , "tailles_phrase" , "longueur_mots" , "taux_non_projectivite" , "nombre_moyen_dep" , "longueur_moyenne_dep" , "longueur_moyenne_max_dep"]]
+X_test = df_test[["taille_vocab" , "tailles_phrase" , "longueur_mots" , "taux_non_projectivite" , "nombre_moyen_dep" , "longueur_moyenne_dep" , "longueur_moyenne_max_dep", "Score"]]
+X_test.fillna(X_test.mean(), inplace=True)
 X_test = mean_norm(X_test)
 y_test = df_test[["las"]]
 
+### Corrélations ###
+
+corr_df = X_train.corr(method='pearson')
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(corr_df, annot=True)
+plt.tight_layout()
+plt.show()
 
 ### Regression ###
 
@@ -64,8 +74,11 @@ print('r2 score is ', score)
 print('MSE is ',mean_squared_error(y_test,y_prediction))
 print('RMS error of is ',np.sqrt(mean_squared_error(y_test,y_prediction)))
 
-for var in ["taille_vocab" , "tailles_phrase" , "longueur_mots" , "taux_non_projectivite" , "nombre_moyen_dep" , "longueur_moyenne_dep" , "longueur_moyenne_max_dep"]:
+for var in ["taille_vocab" , "tailles_phrase" , "longueur_mots" , "taux_non_projectivite" , "nombre_moyen_dep" , "longueur_moyenne_dep" , "longueur_moyenne_max_dep", "Score"]:
     my_plot(X_train,x_value=var,y=y_train)
+
+
+
 
 
 

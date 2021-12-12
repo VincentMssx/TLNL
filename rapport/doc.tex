@@ -20,6 +20,7 @@
 \usepackage{booktabs}
 \usepackage{environ}
 \usepackage{titlesec}
+\usepackage{placeins}
 
 \geometry{hscale=0.80,vscale=0.85,centering}
 
@@ -172,11 +173,12 @@
 %\begin{beware}[\textcolor{red}{Important Remark}]
 %\end{beware}
 
-    \section*{Certaines langues sont elles plus difficiles à analyser que d’autres ?}
+    \section{Certaines langues sont elles plus difficiles à analyser que d’autres ?}
     L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquelles des analyseurs syntaxiques partageant la même architecture et entraînés sur la même quantité de données obtiennent des performances très différentes sur différentes langues. On peut observer ce phénomène dans la Table 2 qui présente les performances calculées à l'aide des mesures LAS (Labeled Accuracy Score) et UAS (Unlabeled Accuracy Score) obtenues par un analyseur sur 36 langues différentes.
 
     \begin{table}[!h]
         \centering
+        %\rowcolors{2}{bgLightGray}{}
         \begin{tabular}{ccc|ccc|ccc}
             \toprule
             \textbf{lang} & \textbf{las} & \textbf{uas} & \textbf{lang} & \textbf{las} & \textbf{uas} & \textbf{lang} & \textbf{las} & \textbf{uas} \\
@@ -198,6 +200,8 @@
         \label{tab:lasuas}
     \end{table}
 
+    \FloatBarrier
+
     \subsection{Variables explicatives}
 
     Nous faisons l'hypothèse qu'il est possible de prédire les capacités d'un analyseur entraîné sur une langue à partir de variables directement observables. La pluspart sont observées sur le corpus d'apprentissage, mais nous utilisons aussi un score de complexité à partir du WALS.
@@ -217,11 +221,98 @@ Ces variables observables sur le corpus sont les suivantes :
 
 \myparagraph{Taux de projectivité}
 
-    
+    La projectivité est une proprieté de certains arbres de dépendance. Elle se traduit par le fait que lorsqu’on trace les dependances au dessus des mots de la phrase, il n’y a jamais de croisement.
 
-    En ce qui concerne des variables explicatives liées aux dépendances, comme la longueur moyenne des dépendances ou encore le nombre de dépendance, la longueur moyenne de la plus grande dépendance (ci-dessous), ce sont les variables les plus sujettes à relever de la cohérence de l'annotation pour chaque langue.
-    
-    Nous évoquerons dans une autre section l'influence de la cohérence des annotations.
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width = 0.7\textwidth]{images/projectivite}
+        \caption{Exemple d'une phrase française projective}
+        \label{fig:projectiv}
+    \end{figure}
+
+    La grande majorité des phrases françaises sont projectives, mais il existe certains cas de non projectivité.
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width = 0.7\textwidth]{images/nonprojectivite}
+        \caption{Exemple d'une phrase française non projective}
+        \label{fig:nonprojectiv}
+    \end{figure}
+
+    Le degré de non projectivité varie d'une langue à l'autre. Il est elevé pour le tchèque, le néerlandais ou le turc, par exemple.
+
+    Nous supposons que le taux de non projectivité peut expliquer les performances d'un analyseur.
+
+    Le calcul du taux de projectivité est très simple. Il suffit de compter, pour une langue, le nombre de phrases contenues dans le fichier \texttt{lang.conllu} et le nombre de phrases contenues dans le fichier \texttt{lang\_proj.conllu} (qui ne contient que les phrases projectives) et d'en faire le quotient (voir la fonction \texttt{taux\_projectvite()} du fichier \texttt{featuresAnalyser.py} en annexe)
+
+\myparagraph{Longueur des dépendances}
+
+    Nous supposons que la longueur des dépendances des phrases projectives ou non projectives peut aussi expliquer les performances de l'analyseur.
+
+Pour calculer la longueur des dépendances, nous utilions les fichiers \texttt{.mcf} et la fonction \texttt{long\_dependances()} (voir \texttt{featuresAnalyser.py} en annexe). L'agorithme opère de la manière suivante :
+    \begin{enumerate}
+        \item découpage des phrases grâce à l'attribut EOS (\textit{End Of Sentence})
+        \item création liste de listes contenant l'attribut GOV (positions relatives des gouverneurs pour chaque mot)
+        \item conversion de ces postions relatives en positions absolues grâce à la fonction \texttt{rel2abs()}
+        \item création de l'arbre correspondant pour chaque liste grâce à la fonction \texttt{maketree()}
+        \item calcul de la profondeur de l'arbre
+    \end{enumerate} ~\par
+
+    Nous avons extrait 3 variables explicatives pour chaque langue :
+    \begin{itemize}
+        \item Longueur moyenne des dépendances
+        \item Nombre moyen de dépendances par phrase
+        \item Longueur moyenne de la plus longue dépendance de chaque phrase
+    \end{itemize}
+
+\begin{table}[!h]
+    \centering
+    %\rowcolors{2}{bgLightGray}{}
+    \begin{tabulary}{\textwidth}{CCCCCCCC}
+        \toprule
+        \textbf{lang} & \textbf{Taille du vocabulaire} & \textbf{Taille moyenne des phrases} & \textbf{Longueur moyenne des mots} & \textbf{Taux de non  projectivité} & \textbf{Nombre moyen de dépendances} & \textbf{Longueur moyenne des dépendances} & \textbf{Longueur de la plus longue dépendance} \\
+        \midrule
+        da & 3545 & 15.71 & 7.62 & 0.2 & 10.77 & 3.15 & 4.56 \\
+        hr & 3974 & 19.2 & 7.65 & 0.08 & 13.06 & 3.64 & 5.59 \\
+        id & 3580 & 18.72 & 7.4 & 0.04 & 12.64 & 3.66 & 5.59 \\
+        ar & 5304 & 36.68 & 6.43 & 0.09 & 17.07 & 5.04 & 7.83 \\
+        eu & 2772 & 11.39 & 7.31 & 0.34 & 7.26 & 2.76 & 4.01 \\
+        it & 3354 & 20.23 & 8.06 & 0.05 & 13.34 & 3.49 & 5.11 \\
+        nno & 2161 & 14.9 & 7.42 & 0.08 & 10.87 & 3.11 & 4.59 \\
+        fa & 3904 & 24.02 & 5.42 & 0.07 & 14.64 & 3.78 & 6.11 \\
+        es & 3424 & 25.63 & 7.58 & 0.08 & 17.69 & 3.93 & 5.94 \\
+        ro & 3767 & 20.01 & 7.01 & 0.12 & 13.52 & 3.75 & 5.75 \\
+        de & 4121 & 16.38 & 9.1 & 0.11 & 11.5 & 3.18 & 4.52 \\
+        hi & 2453 & 19.43 & 5.33 & 0.14 & 12.14 & 3.44 & 5.0 \\
+        zh & 4289 & 21.62 & 1.99 & 0.0 & 15.34 & 3.45 & 5.25 \\
+        lv & 3359 & 11.68 & 7.34 & 0.08 & 8.39 & 2.98 & 4.15 \\
+        he & 6050 & 29.75 & 5.16 & 0.01 & 15.49 & 3.99 & 6.18 \\
+        ko & 10283 & 10.42 & 3.63 & 0.12 & 5.72 & 3.39 & 4.55 \\
+        ja & 4034 & 20.18 & 2.51 & 0.0 & 14.74 & 3.54 & 5.36 \\
+        ca & 2904 & 27.82 & 7.41 & 0.09 & 18.93 & 3.99 & 6.13 \\
+        en & 3375 & 14.61 & 6.57 & 0.08 & 10.32 & 3.07 & 4.4 \\
+        pt & 3980 & 23.93 & 7.5 & 0.13 & 15.18 & 3.75 & 5.55 \\
+        et & 3683 & 8.71 & 7.31 & 0.09 & 6.55 & 2.56 & 3.4 \\
+        fr & 3351 & 23.27 & 7.53 & 0.12 & 15.5 & 3.61 & 5.43 \\
+        el & 2734 & 21.28 & 7.86 & 0.11 & 13.76 & 3.82 & 5.63 \\
+        pl & 4762 & 8.51 & 7.79 & 0.01 & 6.09 & 2.85 & 3.9 \\
+        sv & 4451 & 14.83 & 7.66 & 0.11 & 9.79 & 3.11 & 4.51 \\
+        cs & 4875 & 15.52 & 7.35 & 0.13 & 10.22 & 3.45 & 5.02 \\
+        nl & 3552 & 12.52 & 7.62 & 0.27 & 7.73 & 2.82 & 3.75 \\
+        hu & 3677 & 19.69 & 8.05 & 0.23 & 12.5 & 3.37 & 5.1 \\
+        nob & 2155 & 13.1 & 7.41 & 0.08 & 9.42 & 3.05 & 4.42 \\
+        bg & 3736 & 11.68 & 7.8 & 0.03 & 8.4 & 3.19 & 4.42 \\
+        vi & 1798 & 12.36 & 3.42 & 0.02 & 8.81 & 3.1 & 4.68 \\
+        sl & 4219 & 13.38 & 7.3 & 0.14 & 9.34 & 2.97 & 4.2 \\
+        \midrule
+        moy & 3863 & 18.04 & 6.73 & 0.10 & 11.77 & 3.41 & 5.02 \\
+        \bottomrule
+    \end{tabulary}
+    \caption{Synthèse des variables explicatives pour les corpus \textit{train} pour chaque langue}
+    \label{tab:varexp}
+\end{table}
+
+    \FloatBarrier
 
     \subsubsection{Complexité selon M. Parkvall}
 
@@ -237,7 +328,7 @@ Ces variables observables sur le corpus sont les suivantes :
 
     \begin{table}[!h]
         \centering
-        \rowcolors{3}{bgLightGray}{}
+        \rowcolors{2}{bgLightGray}{}
         \begin{tabulary}{\textwidth}{LLL}
             \toprule
             \multicolumn{3}{c}{\textbf{Caractéristiques du WALS}} \\
@@ -264,6 +355,8 @@ Ces variables observables sur le corpus sont les suivantes :
         \label{tab:0}
     \end{table}
 
+    \FloatBarrier
+
     Il ajoute à ces caractéristiques, d’autres données \og résiduelles \fg{} d’auteurs contributeurs au WALS. Ce sont les suivantes : \par
 
     \begin{table}[!h]
@@ -281,6 +374,8 @@ Ces variables observables sur le corpus sont les suivantes :
         \label{tab:1}
     \end{table}
 
+    \FloatBarrier
+
     Enfin, il s'intéresse aussi à une donnée de Harley and Ritter (2002) à laquelle il a eu accès : \par
 
     \begin{table}[!h]
@@ -296,6 +391,8 @@ Ces variables observables sur le corpus sont les suivantes :
         \caption{Une caractéristique accessible, inspirée de Harley et al. (2002)}
         \label{tab:2}
     \end{table}
+
+    \FloatBarrier
 
     Les valeurs de ces caractéristiques ont toutes été traduite par l’auteur comme des valeurs comprises entre 0 et 1 :
     \begin{itemize}
@@ -315,15 +412,70 @@ Ces variables observables sur le corpus sont les suivantes :
 
     \subsection{Cohérence des annotations}
 
-    Dans leur article \textit{Divergences entre annotations dans le projet Universal Dependencies (\cite{nivre}) et leur impact sur l’évaluation de l’étiquetage morpho-syntaxique} (\cite{wisniewski}), Guillaume Wisniewski et François Yvon montrent que la dégradation des performances observée lors de l’application d’un analyseur morpho-syntaxique à des données hors domaine comme ici, d'une langue à l'autre, résulte d’incohérences entre les annotations des ensembles de test et d’apprentissage. Ils montrent qu'appliquer le principe de variation des annotations de Dickinson \& Meurers (\cite{meueres}) permet d'identifier les erreurs d’annotation et donc les incohérences et évaluer leur impact. Nous souhaitions nous inspirer de ces méthodes mais n'avons pu en raison notamment du temps qui nous manque proposer une telle amélioration...
+    Dans leur article \textit{Divergences entre annotations dans le projet Universal Dependencies (\cite{nivre}) et leur impact sur l’évaluation de l’étiquetage morpho-syntaxique} (\cite{wisniewski}), Guillaume Wisniewski et François Yvon montrent que la dégradation des performances observée lors de l’application d’un analyseur morpho-syntaxique à des données hors domaine comme ici, d'une langue à l'autre, résulte d’incohérences entre les annotations des ensembles de test et d’apprentissage. Ils montrent qu'appliquer le principe de variation des annotations de Dickinson \& Meurers (\cite{meueres}) permet d'identifier les erreurs d’annotation et donc les incohérences et évaluer leur impact. Nous souhaitions nous inspirer de ces méthodes mais n'avons pu en raison notamment du temps qui nous manque proposer une telle amélioration\ldots
+
+
+    \subsection{Mise en oeuvre}
+
+    Nous réalisons une régression multiple à l'aide du modèle \texttt{LinearRegression} de \texttt{scikit-learn} pour prédire LAS après \textbf{normalisation} des variables explicatives.
+
+    Il est d'abord intéressant de regarder les potentielles corrélations entre nos variables explicatives.
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width = 0.9\textwidth]{images/heatmap}
+        \caption{Corrélations entre les variables explicatives}
+        \label{fig:heatmap}
+    \end{figure}
+
+    \FloatBarrier
+
+    On remarque, en toute logique, que la taille des phrases est corélée au nombre et à la taille des dépendances. On constate aussi que la longueur moyenne des dépendances est corrélée au nombre moyen des dépendances : plus il y a de dépendances, plus elles sont longues.
+
+Nos variables normalisées sont notées comme suit :
+    \begin{itemize}
+        \item $x_1$ : Taille du vocabulaire
+        \item $x_2$ : Longueur moyenne d'une phrase
+        \item $x_3$ : Longueur moyenne d'un mot
+        \item $x_4$ : Taux de projectivité
+        \item $x_5$ : Longueur moyenne des dépendances
+        \item $x_6$ : Nombre moyen de dépendances
+        \item $x_7$ : Longueur moyenne de la plus longue dépendance
+        \item $x_8$ : Score de M. Parkvall (WALS)
+    \end{itemize} ~ \par
+
+    Les LAS sont notés $y$. On souhaite estimer les $y$ tels que :
+    \begin{equation*}
+        \exists \left[\alpha_1,\ldots,\alpha_8,\beta\right] \in \mathbb{R},\forall i \quad y_i = \beta + \sum_{j=1}^{8} \alpha_j \cdot x_{i,j}
+        \end{equation*}
+
+    On utilise l'estimateur des moindres carrés :
+
+    \begin{equation*}
+(\hat{\alpha}, \hat{\beta})=\arg \min _{\alpha, \beta} \sum_{i=1}^{n}\left(y_{i}-\left(\alpha x_{i}+\beta\right)\right)^{2}
+\end{equation*}
+
+On obtient les résultats suivants : \par
+
+$\beta = 61.66 $, $\alpha_1 = -2.32$, $\alpha_2 = -0.75$, $\alpha_3 = 3.63$, $\alpha_4 = -3.56$, $\alpha_5 = 3.76$, $\alpha_6 = 17,40$, $\alpha_7 = -18.33$, $\alpha_8 = 0.02$
+
+avec $R^{2} = 0.476$, qui est moyen. L'erreur RMS s'élève à $6.198$.
+
+    Du fait de la normalisation des variables d'entrée, il est directement possible de déduire l'impact de chaque variable. On remarque que le score de M. Parkvall (WALS) a un impact quasi nul sur la régression. En revanche, la longueur moyenne des dépendance et la longueur moyenne de la plus longue dépendance ont une importance majeur, bien qu'opposé.
 
     \subsection{Conclusion}
 
-    % Disclaimer sur le fait que nos moyennes relatent de l'info sur le corpus associé à une langue et non sur la langue elle-même.
-
     \subsubsection{Est-il possible de connaître a priori les performances de l’analyseur en fonction de certaines caractéristiques de la langue ?}
 
+    Bien que les résultats obtenus ne soient pas à la hauteur des espérance, il semblerait certaines caractéristiques de la langue permettent de connaître a priori les performances de l’analyseur.
+
+    Notre étude porte sur un \textbf{corpus de faible taille qui comporte, par essence, de nombreux biais} ; il est donc difficile de généraliser. Une étude avec des corpus de plus grande taille serait nécessaire pour affiner la régression et ainsi conclure de manière plus certaine.
+
     \subsubsection{Est-il possible d’utiliser les conclusions de l’étude statistique pour améliorer les performances de l’analyseur ?}
+
+    Il est a priori possible d'utiliser l'étude statistique pour améliorer les performances de l’analyseur. En effet, connaissant les caractéristiques de la langues, on peut choisir un analyseur moins sensible à la non projectivité ou aux longues dépendances, mais plus couteux seulement pour les langues qui le requierent. Les langues projectives (comme le japonais) peuvent être traités avec des analyseurs plus simples et moins coûteux.
+
+    Ainsi, l'étude statistique permet d'améliorer les performances de l’analyseur en orientant l'investissement en ressources pour les langues les plus \og complexes \fg{}
 
     \printbibliography
 
