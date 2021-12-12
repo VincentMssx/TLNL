@@ -73,7 +73,7 @@ def make_df(filetype):
     df2.drop(['Language', 'Extrapolation'], axis = 1, inplace=True)
     df = df.join(df2)
     os.chdir(base_dir)
-    df.to_csv('results.csv')
+    df.to_csv('results_'+filetype+'.csv')
     return df
 
 def taux_projectvite(filetype,lang):
@@ -148,39 +148,3 @@ def maketree(liste):
                 nouvel_arbre.append(l)
         arbre = nouvel_arbre
         profondeur += 1
-
-
-def my_plot():
-    df = pd.DataFrame({'mots' : liste_mots})
-    df["longueur"]= df['mots'].str.len()
-
-    sns.set(style="ticks")
-    f, (ax_box, ax_hist) = plt.subplots(2, sharex=True,
-                                        gridspec_kw={"height_ratios": (.15, .85)})
-    sns.boxplot(df.longueur, ax=ax_box)
-    sns.distplot(df.longueur, ax=ax_hist, kde=True)
-
-    ax_box.set(yticks=[])
-    sns.despine(ax=ax_hist)
-    sns.despine(ax=ax_box, left=True)
-    plt.show()
-
-    print(df['longueur'].describe())
-
-    print(stats.describe(taille_phrases))
-
-    # sns.set_style('whitegrid')
-    # ax = sns.histplot(data=df, x="longueur")
-    # ax.set(xlabel='Longueur des mots', ylabel='Nombre')
-    # ax.set_title(lang)
-    # plt.show()
-
-    #Calculer la profondeur des arbres
-    #Calculer la longueur moyenne des mots de la phrase OK
-    #POS
-
-    #Stats sur le corpus !!
-    #Taux de non projectivité
-    #longueur moyenne de dépendances
-    #Nature de la dépendance (OBJ)
-    #Ordre de dépendance 0 direct, 1 POS, Structure syntaxique

@@ -29,6 +29,15 @@
 \usepackage{environ}
 
 
+%%% Biblio %%%
+
+\usepackage[
+   backend=biber,        % compilateur par défaut pour biblatex
+   %sorting=nyt,          % trier par nom, année, titre
+   bibstyle=alphabetic,  % style de bibliographie alphabétique
+]{biblatex}
+\addbibresource{bibliographie.bib}
+
 %%% Minted + options %%%
 \usepackage{minted}
 \usepackage[x11names,dvipsnames,table]{xcolor}
@@ -208,7 +217,7 @@ L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquel
 
     \subsubsection{Complexité selon M. Parkvall}
 
-    Dans son papier \textit{The simplicity of creoles in a cross-linguistic perspective} [1] sorti en 2008, Mikael Parkvall s’intéresse à quantifier la complexité des langues. Il part du postulat qu’une expression est d’autant plus complexe qu’elle implique de règles, c’est-à-dire qu’elle requiert une longue description. Ainsi, l'hypothèse de base de l’auteur est la suivante : une langue complexe est une langue avec des constructions plus complexes. Il explore un aspect de complexité structurelle.
+    Dans son papier \textit{The simplicity of creoles in a cross-linguistic perspective} \cite{parkvall} sorti en 2008, Mikael Parkvall s’intéresse à quantifier la complexité des langues. Il part du postulat qu’une expression est d’autant plus complexe qu’elle implique de règles, c’est-à-dire qu’elle requiert une longue description. Ainsi, l'hypothèse de base de l’auteur est la suivante : une langue complexe est une langue avec des constructions plus complexes. Il explore un aspect de complexité structurelle.
 
     Prenons par exemple la voix passive. Lorsqu’elle existe dans une langue, il faut pouvoir définir comment passer de la voie active à la voix passive, ce qui exige une explication de règle supplémentaire. Une langue qui possède une voix passive est donc, en ce qui concerne cette construction spécifique, plus complexe qu’une autre n’en possédant pas. Si on énumère donc un grand nombre de \og constructions complexes \fg{}, la langue la plus complexe sera celle qui en compte le plus grand nombre.
 
@@ -294,7 +303,7 @@ L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquel
 
     \subsection{Cohérence des annotations}
 
-    Dans leur article \textit{Divergences entre annotations dans le projet Universal Dependencies [4] et leur impact sur l’évaluation de l’étiquetage morpho-syntaxique} [2], Guillaume Wisniewski et François Yvon montrent que la dégradation des performances observée lors de l’application d’un analyseur morpho-syntaxique à des données hors domaine comme ici, d'une langue à l'autre, résulte d’incohérences entre les annotations des ensembles de test et d’apprentissage. Ils montrent qu'appliquer le principe de variation des annotations de Dickinson \& Meurers [3] permet d'identifier les erreurs d’annotation et donc les incohérences et évaluer leur impact. Nous souhaitions nous inspirer de ces méthodes mais n'avons pu en raison notamment du temps qui nous manque proposer une telle amélioration...
+    Dans leur article \textit{Divergences entre annotations dans le projet Universal Dependencies \cite{nivre} et leur impact sur l’évaluation de l’étiquetage morpho-syntaxique} \cite{wisniewski}, Guillaume Wisniewski et François Yvon montrent que la dégradation des performances observée lors de l’application d’un analyseur morpho-syntaxique à des données hors domaine comme ici, d'une langue à l'autre, résulte d’incohérences entre les annotations des ensembles de test et d’apprentissage. Ils montrent qu'appliquer le principe de variation des annotations de Dickinson \& Meurers \cite{meueres} permet d'identifier les erreurs d’annotation et donc les incohérences et évaluer leur impact. Nous souhaitions nous inspirer de ces méthodes mais n'avons pu en raison notamment du temps qui nous manque proposer une telle amélioration...
 
     \subsection{Conclusion}
 
@@ -304,6 +313,7 @@ L'objectif de ce projet est d'analyser et de comprendre les raisons pour lesquel
 
     \subsubsection{Est-il possible d’utiliser les conclusions de l’étude statistique pour améliorer les performances de l’analyseur ?}
 
+    \printbibliography
     % Bibliography :
     % [1] Parkvall, M. 2008. The Simplicity of Creoles in a Cross-Linguistic Perspective. Stockholms Universitet. Accessed Oct. 2021.
     % [2] Wisniewski G., Yvon, F. 2018. Divergences entre annotations dans le projet Universal Dependencies et leur impact sur l’évaluation de l’étiquetage morpho-syntaxique. Conférence sur le Traitement Automatique des Langues Naturelles. Accessed Oct. 2021.

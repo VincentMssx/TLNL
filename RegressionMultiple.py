@@ -12,11 +12,21 @@ from featuresAnalyser import make_df
 
 ####### Data #######
 
-df = make_df("train")
-# X_train = Variables Explicatives
-# y_train = LAS
-# X_test =
-# y_test =
+#df_train = make_df("train")
+df_train = pd.read_csv('results.csv',index_col='lang').sort_values(by=['uas'])
+#df_test = make_df("test")
+X_train = df_train[["taille_vocab","tailles_phrase","longueur_mots","taux_non_projectivite","nombre_moyen_dep","longueur_moyenne_dep","longueur_moyenne_max_dep"]]
+y_train = df_train[["uas"]]
+#X_test = df_test["taille_vocab","tailles_phrase","longueur_mots","taux_non_projectivite","nombre_moyen_dep","longueur_moyenne_dep","longueur_moyenne_max_dep"]
+#y_test = df_test["uas"]
+
+# importing module
+from sklearn.linear_model import LinearRegression
+# creating an object of LinearRegression class
+LR = LinearRegression()
+# fitting the training data
+LR.fit(X_train,y_train)
+
 
 
 ####### Preprocessing #######
