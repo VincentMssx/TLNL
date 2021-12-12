@@ -55,12 +55,12 @@ def var_exp_df(filetype):
         longueur_moyenne_max_dep.append(my_dict_dep['longueur_moyenne_max_dep'])
     df = pd.DataFrame({'lang':list_lang,
                        'taille_vocab' : tailles_vocab,
-                       'tailles_phrase' : tailles_phrases,
-                       'longueur_mots' : longueur_mots,
-                       'taux_non_projectivite': tx_non_projectivite,
-                       'nombre_moyen_dep':  nombre_moyen_dep,
-                       'longueur_moyenne_dep': longueur_moyenne_dep,
-                       'longueur_moyenne_max_dep':  longueur_moyenne_max_dep,
+                       'tailles_phrase' : np.round(tailles_phrases,2),
+                       'longueur_mots' : np.round(longueur_mots,2),
+                       'taux_non_projectivite': np.round(tx_non_projectivite,2),
+                       'nombre_moyen_dep':  np.round(nombre_moyen_dep,2),
+                       'longueur_moyenne_dep': np.round(longueur_moyenne_dep,2),
+                       'longueur_moyenne_max_dep':  np.round(longueur_moyenne_max_dep,2),
                        })
     return df
 
@@ -69,6 +69,10 @@ def make_df(filetype):
     df.set_index('lang', inplace=True)
     df2 = pd.read_csv(base_dir + '/out.csv', index_col='lang')
     df = df.join(df2)
+    df2 = pd.read_csv(base_dir + '/complexityScore.csv', index_col='Code')
+    df2.drop(['Language', 'Extrapolation'], axis = 1, inplace=True)
+    df = df.join(df2)
+    os.chdir(base_dir)
     df.to_csv('results.csv')
     return df
 
@@ -99,14 +103,14 @@ def long_dependances(filetype,lang):
         lines = f.readlines()
         sentences = [0]
         for i,line in enumerate(lines):
-            line = line.split()
+            line = line.split("\t")
             if int(line[4]) == 1:
                 sentences.append(i+1)
         liste = []
         for i in range(len(sentences) - 1):
             liste2 = []
             for line in lines[sentences[i]:sentences[i + 1]]:
-                word = line.split()
+                word = line.split("\t")
                 if word[3] == 'root':
                     liste2.append(0)
                 else :
