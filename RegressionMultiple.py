@@ -12,7 +12,7 @@ from featuresAnalyser import make_df
 
 ####### Data #######
 
-df = make_df()
+df = make_df("train")
 # X_train = Variables Explicatives
 # y_train = LAS
 # X_test =
