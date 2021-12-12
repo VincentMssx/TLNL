@@ -1,0 +1,33 @@
+Language,Code,Score,Extrapolation
+Czech,cs,0.49,Slave
+Spanish,es,0.53,
+Arabic,ar,0.39,
+Estonian,et,,
+English,en,0.42,
+Danish,da,,
+Bulgarian,bg,0.49,Slave
+French,fr,0.51,
+German,de,0.49,
+Persian,fa,0.46,
+Catalan,ca,,
+Greek,el,0.53,
+Basque,eu,0.52,
+Japanese,ja,0.46,
+Korean,ko,0.49,
+Italian,it,,
+Indonesian,id,0.26,
+Hebrew,he,0.48,
+Croatian,hr,0.49,Slave
+Hungarian,hu,0.38,
+Hindi,hi,0.54,
+Dutch,nl,,
+Norwegian Nynorsk,nob,,
+Chinese,zh,0.39,Mandarin
+Latvian,lv,0.53,
+Romanian,ro,,
+Swedish,sv,0.47,
+Slovenian,sl,0.49,Slave
+Polish,pl,0.49,Slave
+Norwegian Bokmål,nno,,
+Vietnamese,vi,0.26,
+Portuguese,pt,,
